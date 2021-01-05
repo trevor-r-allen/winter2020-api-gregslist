@@ -66,4 +66,10 @@ export default class JobsController{
       console.error(error);
     }
   } 
+
+  getOne(){
+    let id = ProxyState.jobs[0].id
+    jobsService.getOne(id)
+  }
+
 }

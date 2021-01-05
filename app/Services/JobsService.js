@@ -27,7 +27,11 @@ class JobsService{
     let temp = ProxyState.jobs
     temp.splice(oldJobIndex, 1, new Job(res.data))
     ProxyState.jobs = temp
-
   }
+
+  async getOne(id){
+   let res = await api.get("jobs/"+id)
+   console.log(res)
+
 }
 export const jobsService = new JobsService

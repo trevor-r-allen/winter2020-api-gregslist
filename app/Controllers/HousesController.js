@@ -66,4 +66,10 @@ export default class HousesController{
       console.error(error);
     }
   }
+
+  getOne(){
+    let id = ProxyState.houses[0].id
+    housesService.getOne(id)
+  }
+
 }

@@ -28,5 +28,10 @@ class HousesService{
     temp.splice(oldHouseIndex, 1, new House(res.data))
     ProxyState.houses = temp
   }
+
+  async getOne(id){
+   let res = await api.get("houses/"+id)
+   console.log(res)
+
 }
 export const housesService = new HousesService()
