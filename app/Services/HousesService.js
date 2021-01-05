@@ -33,5 +33,6 @@ class HousesService{
    let res = await api.get("houses/"+id)
    console.log(res)
 
+  }
 }
-export const housesService = new HousesService()
+   export const housesService = new HousesService()

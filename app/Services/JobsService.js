@@ -32,6 +32,6 @@ class JobsService{
   async getOne(id){
    let res = await api.get("jobs/"+id)
    console.log(res)
-
+  }
 }
 export const jobsService = new JobsService
