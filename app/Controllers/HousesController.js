@@ -12,7 +12,6 @@ function __drawHouses(){
 
 export default class HousesController{
   constructor(){
-    console.log("Houses Controller Constructor")
     ProxyState.on("houses", __drawHouses)
     __drawHouses()
     this.getHouses()
@@ -58,5 +57,13 @@ export default class HousesController{
     catch(error){
       console.error(error)
     }  
+  }
+  bid(id, price){
+    try{
+      housesService.bid(id, price)
+    }
+    catch(error){
+      console.error(error);
+    }
   }
 }

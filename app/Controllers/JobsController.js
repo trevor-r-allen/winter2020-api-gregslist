@@ -12,7 +12,6 @@ function __drawJobs(){
 
 export default class JobsController{
   constructor(){
-    console.log("Jobs Controller Constructor")
     ProxyState.on("jobs", __drawJobs)
     __drawJobs()
     this.getJobs()
@@ -59,4 +58,12 @@ export default class JobsController{
     }  
   }
 
+  bid(id, price){
+    try{
+      jobsService.bid(id, price)
+    }
+    catch(error){
+      console.error(error);
+    }
+  } 
 }

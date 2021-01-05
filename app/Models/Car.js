@@ -1,8 +1,5 @@
-import { generateId } from "../Utils/GenerateId.js"
-
 export default class Car {
   constructor({ make, model, year, price, description, imgUrl, id }) {
-    console.log("MODEL: constructor", 3)
     this.id = id
     this.make = make
     this.model = model
@@ -13,7 +10,7 @@ export default class Car {
   }
 
   get Template() {
-    return `
+    return /*html*/`
     <div class="col-md-4 col-6 mt-3">
     <div class="card">
         <img class="card-img-top" src="${this.imgUrl}" alt="">

@@ -18,6 +18,7 @@ export default class Job {
             <p class="card-text">${this.description}</p>
             <p class="card-text">$${this.rate}</p>
             <div class="text-right">
+            <button type="button" class="btn btn-success" onclick="app.jobsController.bid('${this.id}', '${this.rate += 500}')">Bid</button>
                 <button type="button" class="btn btn-danger" onclick="app.jobsController.deleteJob('${this.id}')">Delete</button>
             </div>
         </div>

@@ -9,7 +9,7 @@ class JobsService{
     console.log(res.data)
     ProxyState.jobs = res.data.map(j => new Job(j))
   }
-    async createJob(newJob){
+  async createJob(newJob){
     let job = await api.post("jobs", newJob)
     console.log(job)
     ProxyState.jobs = [...ProxyState.jobs, new Job(job.data)]
@@ -18,6 +18,16 @@ class JobsService{
     let res = await api.delete("jobs/"+id)
     console.log(res);
     ProxyState.jobs = ProxyState.jobs.filter(job => job.id != id)
+  }
+  async bid(id, newRate) {
+    let jobData = {rate: newRate}
+    let res = await api.put("jobs/"+id, jobData)
+    console.log(res)
+    let oldJobIndex = ProxyState.jobs.findIndex(j => j.id == id)
+    let temp = ProxyState.jobs
+    temp.splice(oldJobIndex, 1, new Job(res.data))
+    ProxyState.jobs = temp
+
   }
 }
 export const jobsService = new JobsService
