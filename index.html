@@ -20,44 +20,148 @@
             </a>
         </nav>
     </header>
-    <main class="container">
-        <div class="row mt-2">
-            <div class="col text-right">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                    data-target="#new-car-modal">+</button>
-                <!-- Modal -->
-                <div class="modal fade" id="new-car-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">NEW CAR FORM</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form onsubmit="app.carsController.createCar()">
-                                    <input type="text" id="make" placeholder="make" required>
-                                    <input type="text" id="model" placeholder="model" required>
-                                    <input type="number" id="year" placeholder="year" required min="1885" value="2020">
-                                    <input type="number" id="price" placeholder="price" required min="1">
-                                    <input type="text" id="description" placeholder="description">
-                                    <input type="text" id="imgUrl" placeholder="Image Url">
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save</button>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="cars-tab" data-toggle="tab" href="#cars-pane" role="tab" aria-controls="cars"
+                aria-selected="true">Cars</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="houses-tab" data-toggle="tab" href="#houses-pane" role="tab" aria-controls="houses"
+                aria-selected="false">Houses</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="jobs-tab" data-toggle="tab" href="#jobs-pane" role="tab" aria-controls="jobs"
+                aria-selected="false">Jobs</a>
+        </li>
+    </ul>
+    <main class="container tab-content" id="myTabContent">
+        <div class="row tab-pane fade show active" id="cars-pane" role="tabpanel" aria-labelledby="cars-tab">
+            <div class="col">
+                <div class="row mt-2">
+                    <div class="col text-right">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#new-car-modal">+</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="new-car-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">NEW CAR FORM</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </form>
+                                    <div class="modal-body">
+                                        <form onsubmit="app.carsController.createCar()">
+                                            <input type="text" id="make" placeholder="make" required>
+                                            <input type="text" id="model" placeholder="model" required>
+                                            <input type="number" id="year" placeholder="year" required min="1885"
+                                                value="2020">
+                                            <input type="number" id="price" placeholder="price" required min="1">
+                                            <input type="text" id="description" placeholder="description">
+                                            <input type="text" id="imgUrl" placeholder="Image Url">
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row" id="cars">
+                </div>
             </div>
         </div>
-        <div class="row" id="cars">
+        <div class="row tab-pane fade" id="houses-pane" role="tabpanel" aria-labelledby="houses-tab">
+            <div class="col">
+                <div class="row mt-2">
+                    <div class="col text-right">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#new-house-modal">+</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="new-house-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">NEW HOUSE FORM</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form onsubmit="app.housesController.createHouse()">
+                                            <input type="number" id="bedrooms" placeholder="bedrooms" required>
+                                            <input type="number" id="bathrooms" placeholder="bathrooms" required>
+                                            <input type="number" id="levels" placeholder="levels" required min="1">
+                                            <input type="number" id="year" placeholder="year" required min="1">
+                                            <input type="number" id="price" placeholder="price" required min="1">
+                                            <input type="text" id="description" placeholder="description">
+                                            <input type="text" id="imgUrl" placeholder="Image Url">
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="houses">
+                </div>
+            </div>
+        </div>
+        <div class="row tab-pane fade" id="jobs-pane" role="tabpanel" aria-labelledby="jobs-tab">
+            <div class="col">
+                <div class="row mt-2">
+                    <div class="col text-right">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#new-job-modal">+</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="new-job-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="modelTitleId" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">NEW JOB FORM</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form onsubmit="app.jobsController.createJob()">
+                                            <input type="text" id="company" placeholder="company" required>
+                                            <input type="text" id="JobTitle" placeholder="Job Title" required>
+                                            <input type="number" id="hours" placeholder="hours" value="40">
+                                            <input type="number" id="rate" placeholder="rate" required min="1">
+                                            <input type="text" id="description" placeholder="description">
+                                            <input type="text" id="imgUrl" placeholder="Image Url">
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="jobs">
+                </div>
+            </div>
         </div>
     </main>
     <footer class="container-fluid bg-dark text-light">
