@@ -12,7 +12,7 @@ export default class Job {
     return /*html*/`
     <div class="col-md-4 col-6 mt-3">
     <div class="card">
-        <img class="card-img-top" src="" alt="https://place-hold.it/200x200">
+        <img class="card-img-top" src="https://place-hold.it/200x200" alt="https://place-hold.it/200x200">
         <div class="card-body">
             <h4 class="card-title">${this.jobTitle} - at ${this.company} - ${this.hours}hours/week</h4>
             <p class="card-text">${this.description}</p>

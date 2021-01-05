@@ -15,6 +15,15 @@ export default class HousesController{
     console.log("Houses Controller Constructor")
     ProxyState.on("houses", __drawHouses)
     __drawHouses()
+    this.getHouses()
+  }
+  getHouses(){
+    try{
+      housesService.getHouses()
+    }
+    catch(error){
+      console.error(error)
+    }
   }
 
   createHouse(){
@@ -30,7 +39,12 @@ export default class HousesController{
       price: form["price"].value,
       description: form["description"].value,
     }
-    housesService.createHouse(newHouse)
+    try{
+      housesService.createHouse(newHouse)
+    }
+    catch(error){
+      console.error(error)
+    }
     // @ts-ignore
     form.reset()
     // @ts-ignore
@@ -38,7 +52,11 @@ export default class HousesController{
   }
 
   deleteHouse(id){
-    console.log("Houses Controller Delete Houses Function")
-    housesService.deleteHouse(id)
+    try{
+      housesService.deleteHouse(id)
+    }
+    catch(error){
+      console.error(error)
+    }  
   }
 }

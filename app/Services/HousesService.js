@@ -1,12 +1,21 @@
 import { ProxyState } from "../AppState.js"
 import House from "../Models/House.js"
+import { api } from "./AxiosService.js"
 
 class HousesService{
-  createHouse(newHouse){
-    let house = new House(newHouse)
-    ProxyState.houses = [...ProxyState.houses, house]
+  async getHouses(){
+    let res = await api.get("houses")
+    console.log(res.data)
+    ProxyState.houses = res.data.map(h => new House(h))
   }
-  deleteHouse(id){
+  async createHouse(newHouse){
+    let house = await api.post("houses", newHouse)
+    console.log(house)
+    ProxyState.houses = [...ProxyState.houses, new House(house.data)]
+  }
+  async deleteHouse(id){
+    let res = await api.delete("houses/"+id)
+    console.log(res)
     ProxyState.houses = ProxyState.houses.filter(house => house.id != id)
 
   }
